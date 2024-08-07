@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await axios.get('/api/to_do_list');
+        const res = await axios.get('/api');
         console.log('Fetched tasks:', res.data);  // Debug log
         setTask(res.data);
       } catch (err) {
