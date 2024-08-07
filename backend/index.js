@@ -30,7 +30,7 @@ db.once('open', () => {
 app.get('/api/to_do_list', async (req, res) => {
   try {
     const tasks = await getItem();
-    res.json(tasks);
+    res.send(tasks);
   } catch (error) {
     res.status(500).send('Internal Server Error');
   }
