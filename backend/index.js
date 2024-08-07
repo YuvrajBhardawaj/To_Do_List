@@ -30,7 +30,8 @@ db.once('open', () => {
 app.get('/', async (req, res) => {
   try {
     const tasks = await getItem();
-    res.send(tasks);
+    res.send(<h1>Hello</h1>)
+    //res.send(tasks);
   } catch (error) {
     res.status(500).send('Internal Server Error');
   }
