@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await axios.get('/api');
+        const res = await axios.get('https://to-do-list-backend-mojb.onrender.com/api/');
         console.log('Fetched tasks:', res.data);  // Debug log
         setTask(res.data);
       } catch (err) {
