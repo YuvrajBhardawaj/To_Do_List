@@ -41,7 +41,7 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/to_do_list" element={<>
+      <Route path="/" element={<>
       <h1 className="bg-black text-blue-300 px-2 py-3 text-center text-5xl">Yuvraj's To Do List</h1>
       <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-4 my-8 '>
         <form onSubmit={submitHandler} className="flex ">
