@@ -27,7 +27,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.get('/api/to_do_list', async (req, res) => {
+app.get('/api', async (req, res) => {
   try {
     const tasks = await getItem();
     res.json(tasks);
@@ -36,7 +36,7 @@ app.get('/api/to_do_list', async (req, res) => {
   }
 });
 
-app.post('/api/to_do_list', async (req, res) => {
+app.post('/api', async (req, res) => {
   try {
     const { list } = req.body;
     const result = await addItem(list);
@@ -46,7 +46,7 @@ app.post('/api/to_do_list', async (req, res) => {
   }
 });
 
-app.delete('/api/to_do_list/:id', async (req, res) => {
+app.delete('/api/:id', async (req, res) => {
   try {
     const _id = req.params.id;
     const result = await deleteItem(_id);
