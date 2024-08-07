@@ -6,7 +6,7 @@ import { getItem, deleteItem, addItem } from './db.js';
 const app = express();
 
 app.use(cors({
-  origin: 'https://to-do-list-azjm.vercel.app/',  // Allow requests from your frontend domain
+  origin: 'https://to-do-list-azjm.vercel.app',  // Allow requests from your frontend domain
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, // if you need to handle cookies
 }));
