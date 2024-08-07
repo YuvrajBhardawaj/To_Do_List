@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await axios.get('/api/to_do_list');
+        const res = await axios.get('https://to-do-list-backend-mojb.onrender.com/api/to_do_list');
         console.log('Fetched tasks:', res.data);  // Debug log
         setTask(res.data);
       } catch (err) {
@@ -23,10 +23,10 @@ function App() {
     e.preventDefault();
     if (list.length > 0) {
       try {
-        const res = await axios.post('/api/to_do_list', { list });
+        const res = await axios.post('https://to-do-list-backend-mojb.onrender.com/api/to_do_list', { list });
         console.log('Task added:', res.data);  // Debug log
         setList("");
-        const updatedTasks = await axios.get('/api/to_do_list');
+        const updatedTasks = await axios.get('https://to-do-list-backend-mojb.onrender.com/api/to_do_list');
         setTask(updatedTasks.data);
       } catch (err) {
         console.error('Error adding task:', err);  // Debug log
@@ -37,9 +37,9 @@ function App() {
   const onDelete = async (index) => {
     const taskId = task[index]._id;
     try {
-      const res = await axios.delete(`/api/to_do_list/${taskId}`);
+      const res = await axios.delete(`https://to-do-list-backend-mojb.onrender.com/api/to_do_list/${taskId}`);
       console.log('Task deleted:', res.data);  // Debug log
-      const updatedTasks = await axios.get('/api/to_do_list');
+      const updatedTasks = await axios.get('https://to-do-list-backend-mojb.onrender.com/api/to_do_list');
       setTask(updatedTasks.data);
     } catch (err) {
       console.error('Error deleting task:', err);  // Debug log
