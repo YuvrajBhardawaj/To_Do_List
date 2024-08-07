@@ -27,11 +27,10 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.get('/', async (req, res) => {
+app.get('/api/to_do_list', async (req, res) => {
   try {
     const tasks = await getItem();
-    res.send(<h1>Hello</h1>)
-    //res.send(tasks);
+    res.send(tasks);
   } catch (error) {
     res.status(500).send('Internal Server Error');
   }
