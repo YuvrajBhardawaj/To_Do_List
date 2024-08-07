@@ -27,7 +27,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-app.get('/api/to_do_list', async (req, res) => {
+app.get('/', async (req, res) => {
   try {
     const tasks = await getItem();
     res.send(tasks);
