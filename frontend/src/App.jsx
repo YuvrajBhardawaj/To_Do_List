@@ -6,14 +6,14 @@ function App() {
   const [list, setList] = useState("");
   const [task, setTask] = useState([]);
 
-  // Fetch tasks when the component mounts
   useEffect(() => {
     const fetchTasks = async () => {
       try {
         const res = await axios.get('/api/to_do_list');
+        console.log('Fetched tasks:', res.data);  // Debug log
         setTask(res.data);
       } catch (err) {
-        console.log(err);
+        console.error('Error fetching tasks:', err);  // Debug log
       }
     };
     fetchTasks();
@@ -24,13 +24,12 @@ function App() {
     if (list.length > 0) {
       try {
         const res = await axios.post('/api/to_do_list', { list });
-        console.log(res);
+        console.log('Task added:', res.data);  // Debug log
         setList("");
-        // Fetch tasks again to update the list
         const updatedTasks = await axios.get('/api/to_do_list');
         setTask(updatedTasks.data);
       } catch (err) {
-        console.log(err);
+        console.error('Error adding task:', err);  // Debug log
       }
     }
   };
@@ -39,12 +38,11 @@ function App() {
     const taskId = task[index]._id;
     try {
       const res = await axios.delete(`/api/to_do_list/${taskId}`);
-      console.log(res);
-      // Fetch tasks again to update the list
+      console.log('Task deleted:', res.data);  // Debug log
       const updatedTasks = await axios.get('/api/to_do_list');
       setTask(updatedTasks.data);
     } catch (err) {
-      console.log(err);
+      console.error('Error deleting task:', err);  // Debug log
     }
   };
 
