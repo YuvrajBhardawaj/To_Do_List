@@ -46,7 +46,7 @@ app.post('/api/to_do_list', async (req, res) => {
   }
 });
 
-app.delete('/api/:id', async (req, res) => {
+app.delete('/api/to_do_list/:id', async (req, res) => {
   try {
     const _id = req.params.id;
     const result = await deleteItem(_id);
