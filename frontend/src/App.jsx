@@ -7,7 +7,7 @@ function App() {
   const [task,setTask]=useState([])
 
   useEffect(()=>{
-    axios.get('/api/to_do_list')
+    axios.get('https://to-do-list-backend-mojb.onrender.com/api/to_do_list')
     .then((res)=>setTask(res.data))
     .catch((err)=>console.log(err))
   },[task],[list])
