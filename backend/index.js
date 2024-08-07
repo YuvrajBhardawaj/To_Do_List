@@ -17,7 +17,7 @@ db.once('open', () => {
 })
 app.get('/api/to_do_list',async(req,res)=>{
     const tasks=await getItem()
-    res.send(tasks)
+    res.json(tasks)
 })
 app.post('/api/to_do_list',async(req,res)=>{
     const {list}=req.body
